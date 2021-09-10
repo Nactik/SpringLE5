@@ -5,6 +5,11 @@
     <title>Spring Demo | Teachers</title>
 </head>
 <body>
-Test
+    <div>
+        <ul th:each="teacher : ${teachers}">
+            <li th:text="${teacher.firstName}"></li>
+            <li th:text="${teacher.lastName}"></li>
+        </ul>
+    </div>
 </body>
 </html>

@@ -28,6 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/robots.txt").permitAll()
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/api/**").permitAll()
+                .antMatchers("/mock/**").permitAll()
                 .antMatchers("/h2/**").hasRole("ADMIN")
                 .antMatchers("/swagger-ui.html").hasRole("Admin")
                 .antMatchers(HttpMethod.POST,"/teachers/create").hasRole("ADMIN")

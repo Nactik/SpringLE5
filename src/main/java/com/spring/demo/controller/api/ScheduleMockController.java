@@ -31,7 +31,8 @@ public class ScheduleMockController {
 
     @GetMapping("/schedules")
     @ResponseBody
-    public SchedulesDto getTeacherSchedule(@RequestParam int teacherId){
+    public SchedulesDto getTeacherSchedule(@RequestParam int teacherId) throws InterruptedException {
+        Thread.sleep(3000);
         List<ScheduleDto> scheduleDtos = schedules.get(teacherId);
         return new SchedulesDto(scheduleDtos == null ? new ArrayList<>() : scheduleDtos);
     }

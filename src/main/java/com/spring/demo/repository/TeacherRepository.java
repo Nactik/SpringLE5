@@ -10,4 +10,6 @@ public interface TeacherRepository {
     List<TeacherModel> findAll();
     TeacherModel findById(int id);
 
+    void save(TeacherModel teacherModel);
+
 }

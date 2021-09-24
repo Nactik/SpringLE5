@@ -5,6 +5,7 @@ import com.spring.demo.repository.TeacherRepository;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Repository;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -35,6 +36,11 @@ public class InMemoryTeacherRepository implements TeacherRepository {
                 .filter((x) -> x.getId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public void save(TeacherModel teacherModel) {
+        throw new NotImplementedException();
     }
 
     public static void main(String[] args) {

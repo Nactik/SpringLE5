@@ -7,6 +7,9 @@ public class TeacherDto {
     private String lastName;
     private String subject;
 
+    public TeacherDto() {
+    }
+
     public TeacherDto(int id, String firstName, String lastName, String subject) {
         this.id = id;
         this.firstName = firstName;

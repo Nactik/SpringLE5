@@ -10,7 +10,13 @@
 <th:block layout:fragment="main">
     <h1>Teachers</h1>
 
-    <table class="table table-bordered table-stripped">
+    <div>
+        <a th:href="@{/teachers/create}" class="btn btn-primary btn-sm" role="button">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"> Create</span>
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -26,6 +32,11 @@
             <td th:text="${teacher.firstName}"></td>
             <td th:text="${teacher.lastName}"></td>
             <td th:text="${teacher.subject}"></td>
+            <td>
+                <a th:href="@{/teachers/__${teacher.id}__}" class="btn btn-warning btn-sm" role="button">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"> Update</span>
+                </a>
+            </td>
         </tr>
 
     </table>

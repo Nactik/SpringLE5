@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -32,5 +33,10 @@ public class JdbcTeacherRepositoryImpl implements TeacherRepository {
         } catch (EmptyResultDataAccessException e){
             return null;
         }
+    }
+
+    @Override
+    public void save(TeacherModel teacherModel) {
+        throw new NotImplementedException();
     }
 }

@@ -1,10 +1,12 @@
 package com.spring.demo.controller.html;
 
+import com.spring.demo.dto.TeacherDto;
 import com.spring.demo.dto.TeachersDto;
 import com.spring.demo.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,6 +20,23 @@ public class TeacherHtmlController extends AbstractHtmlController {
         TeachersDto teachersDto = teacherService.findAll();
         model.addAttribute("teachers", teachersDto.getTeachers());
         return "teachers";
+    }
+
+    @RequestMapping("/teachers/{id}")
+    public String teacher(Model model, @PathVariable int id){
+        TeacherDto teacherDto = teacherService.findById(id);
+        model.addAttribute("teacher", teacherDto);
+        model.addAttribute("action","update");
+
+        return "teacher-create-update.html.bak";
+    }
+
+    @RequestMapping("/teachers/create")
+    public String initCreateTeacher(Model model){
+        model.addAttribute("teacher", new TeacherDto());
+        model.addAttribute("action","save");
+
+        return "teacher-create-update.html.bak";
     }
 
 }

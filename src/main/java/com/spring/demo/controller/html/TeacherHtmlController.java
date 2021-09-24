@@ -28,7 +28,7 @@ public class TeacherHtmlController extends AbstractHtmlController {
         model.addAttribute("teacher", teacherDto);
         model.addAttribute("action","update");
 
-        return "teacher-create-update.html.bak";
+        return "teacher-create-update";
     }
 
     @RequestMapping("/teachers/create")
@@ -36,7 +36,7 @@ public class TeacherHtmlController extends AbstractHtmlController {
         model.addAttribute("teacher", new TeacherDto());
         model.addAttribute("action","save");
 
-        return "teacher-create-update.html.bak";
+        return "teacher-create-update.html";
     }
 
 }

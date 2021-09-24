@@ -12,6 +12,7 @@ public class ScheduleService {
 
     @Autowired
     public RestTemplate restTemplate;
+
     @Autowired
     private Environment env;
 

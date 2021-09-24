@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -31,12 +32,24 @@ public class TeacherHtmlController extends AbstractHtmlController {
         return "teacher-create-update";
     }
 
+    @PostMapping("/teachers/create")
+    public String initCreateTeacher(TeacherDto teacher){
+        teacherService.save(teacher);
+        return "redirect:/teachers";
+    }
+
     @RequestMapping("/teachers/create")
     public String initCreateTeacher(Model model){
         model.addAttribute("teacher", new TeacherDto());
         model.addAttribute("action","save");
 
         return "teacher-create-update.html";
+    }
+
+    @PostMapping("/teachers/{id}")
+    public String updateTeacher(@PathVariable int id, TeacherDto teacher){
+        teacherService.save(teacher);
+        return "redirect:/teachers";
     }
 
 }

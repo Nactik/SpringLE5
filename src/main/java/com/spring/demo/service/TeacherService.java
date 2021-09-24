@@ -33,11 +33,25 @@ public class TeacherService {
         }
     }
 
+
+    public void save(TeacherDto teacherDto){
+        TeacherModel teacherModel = revert(teacherDto);
+        teacherRepository.save(teacherModel);
+        teacherDto.setId(teacherModel.getId());
+    }
+
     private TeacherDto convert(TeacherModel teacherModel){
         return new TeacherDto(teacherModel.getId(),
                 teacherModel.getFirstName(),
                 teacherModel.getLastName(),
                 teacherModel.getSubject());
+    }
+
+    public TeacherModel revert(TeacherDto teacherDto){
+        return new TeacherModel(teacherDto.getId(),
+                teacherDto.getFirstName(),
+                teacherDto.getLastName(),
+                teacherDto.getSubject());
     }
 
 }
